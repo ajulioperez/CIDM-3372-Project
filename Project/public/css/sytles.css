@@ -1,6 +1,9 @@
 body {
+    color: azure;
+    background-color : black;
     margin: 0 auto;
     padding: 1em 0;
+
 }
 
 #mapid { 
@@ -10,9 +13,12 @@ body {
 header,
 aside,
 footer {
-    background-color: lightblue;
+    color: rgb(0, 0, 0);
+    background-color: rgb(133, 248, 248);
     padding: 1em;
 }
+
+
 
 header, footer {
     grid-column: 1 / 4;
@@ -45,6 +51,12 @@ header, footer {
     flex-direction: column;
     justify-content: start;    
 }
+
+.w3-teal, .w3-hover-teal:hover {
+    color: rgb(0, 0, 0)!important;
+    background-color: azure!important;
+}
+
 
 .grid-container > header, footer {
     display: flex;
