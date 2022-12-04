@@ -114,16 +114,16 @@ const updateWeatherOutput = async (json, site) => {
     // <div id="latitude" class="weather-element"></div>
     //latitude
     const latitude = metar.latitude[0]
-    // const latitude_output = `<strong>LAT:</strong> ${latitude}`
-    // const latitude_element = document.querySelector('#latitude')
-    // latitude_element.innerHTML = latitude_output
+    const latitude_output = `<strong>LAT:</strong> ${latitude}`
+    const latitude_element = document.querySelector('#latitude')
+    latitude_element.innerHTML = latitude_output
 
     // <div id="longitude" class="weather-element"></div>
     //longitude            
     const longitude = metar.longitude[0]
-    // const longitude_output = `<strong>LON:</strong> ${longitude}`
-    // const longitude_element = document.querySelector('#longitude')
-    // longitude_element.innerHTML = longitude_output
+    const longitude_output = `<strong>LON:</strong> ${longitude}`
+    const longitude_element = document.querySelector('#longitude')
+    longitude_element.innerHTML = longitude_output
 
     // <div id="temp" class="weather-element"></div>    
     //temp
