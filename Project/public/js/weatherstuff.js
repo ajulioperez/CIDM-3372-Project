@@ -249,6 +249,7 @@ const updateWeatherOutput = async (json, site) => {
     const metarTableElement = document.querySelector('#metar_table')
     const rowCount = metarTableElement.rows.length
 
+
     if(rowCount > 5)
     {
         metarTableElement.deleteRow(rowCount - 1)
@@ -256,32 +257,41 @@ const updateWeatherOutput = async (json, site) => {
         const row = metarTableElement.insertRow(1)
 
         var stationIdCell = row.insertCell(0)
-        stationIdCell.innerHTML = `${station_id}`
+        // stationIdCell.innerHTML = `${station_id}`
+        stationIdCell.innerHTML = `<button onclick="refreshMETAR('${station_id}')">${station_id}</button>`
 
         var latitudeCell = row.insertCell(1)
-        latitudeCell.innerHTML = `${latitude}`
+        // latitudeCell.innerHTML = `${latitude}`
+        latitudeCell.innerHTML = `<span onclick="refreshMETAR('${station_id}')">${latitude}</span>`
 
         var longitudeCell = row.insertCell(2)
-        longitudeCell.innerHTML = `${longitude}`
+        // longitudeCell.innerHTML = `${longitude}`
+        longitudeCell.innerHTML = `<span onclick="refreshMETAR('${station_id}')">${longitude}</span>`
 
         var rawMETARCell = row.insertCell(3)
-        rawMETARCell.innerHTML = `${raw_metar}`        
+        // rawMETARCell.innerHTML = `${raw_metar}`
+        rawMETARCell.innerHTML = `<span onclick="refreshMETAR('${station_id}')">{${raw_metar}}</span>`     
+        
 
     } else {
 
         const row = metarTableElement.insertRow(1)
 
         var stationIdCell = row.insertCell(0)
-        stationIdCell.innerHTML = `${station_id}`
+        // stationIdCell.innerHTML = `${station_id}`
+        stationIdCell.innerHTML = `<button onclick="refreshMETAR('${station_id}')">${station_id}</button>`
 
         var latitudeCell = row.insertCell(1)
-        latitudeCell.innerHTML = `${latitude}`
+        // latitudeCell.innerHTML = `${latitude}`
+        latitudeCell.innerHTML = `<span onclick="refreshMETAR('${station_id}')">${latitude}</span>`
 
         var longitudeCell = row.insertCell(2)
-        longitudeCell.innerHTML = `${longitude}`
+        // longitudeCell.innerHTML = `${longitude}`
+        longitudeCell.innerHTML = `<span onclick="refreshMETAR('${station_id}')">${longitude}</span>`
 
         var rawMETARCell = row.insertCell(3)
-        rawMETARCell.innerHTML = `${raw_metar}`
+        // rawMETARCell.innerHTML = `${raw_metar}`
+        rawMETARCell.innerHTML = `<span onclick="refreshMETAR('${station_id}')">{${raw_metar}}</span>`
     }
 }
 
