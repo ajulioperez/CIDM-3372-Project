@@ -41,6 +41,69 @@
     <script src="js/weatherstuff.js"></script>
 </head>
 
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            console.log("document loaded")
+            
+            const metarTableElement = document.querySelector("#metar_table");
+            const rows = metarTableElement.rows;
+            
+            console.log(`number of table rows: ${rows.length}`)
+            
+            for(let i = 1; i < rows.length; i++) {
+
+                console.log(`number of cells: ${rows[i].cells.length} in row ${i + 1}`)
+
+                rows[i].onclick = (revt) => {
+
+                    //the click will tell you which cell you've clicked on
+                    //so you need to step up one level, using parentNode
+                    //to get all the cells in this row
+                    const cellsInRow = revt.target.parentNode.cells;
+
+                    // const first_name = cellsInRow[1].innerHTML
+                    // const firstTargetElement = document.querySelector("#first_target")
+                    // firstTargetElement.innerHTML = first_name
+
+                    // <div id="station_id" class="weather-element"></div>
+                    //station id
+                    const station_id = cellsInRow.station_id[0]
+                    const station_id_output = `<strong>STATION:</strong> ${station_id}`
+                    const station_id_element = document.querySelector('#station_id')
+                    station_id_element.innerHTML = station_id_output
+
+                    // <div id="latitude" class="weather-element"></div>
+                    //latitude
+                    const latitude = cellsInRow.latitude[0]
+                    const latitude_output = `<strong>LAT:</strong> ${latitude}`
+                    const latitude_element = document.querySelector('#latitude')
+                    latitude_element.innerHTML = latitude_output
+
+                    // <div id="longitude" class="weather-element"></div>
+                    //longitude            
+                    const longitude = cellsInRow.longitude[0]
+                    const longitude_output = `<strong>LON:</strong> ${longitude}`
+                    const longitude_element = document.querySelector('#longitude')
+                    longitude_element.innerHTML = longitude_output
+
+                    // <div id="raw_metar" class="weather-element"></div>
+                    //raw metar
+                    const raw_metar = cellsInRow.raw_text[3]
+                    const raw_metar_output = `<strong>METAR:</strong> ${raw_metar}`
+                    const raw_metar_element = document.querySelector('#raw_metar')
+                    raw_metar_element.innerHTML = raw_metar_output
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
+
+
+
 <body>
     <div class="w3-container">
         <div class="flex-container">
@@ -105,11 +168,7 @@
                         <th>Lon</th>
                         <th>METAR</th>
                     </tr>
-                </table>  
-
-               
-                
-                             
+                </table>        
             </footer>
         </div>
     </div>
